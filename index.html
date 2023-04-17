@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Mumo datamodel Primer</title>
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+  <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.0.1/dist/main.js"
+    defer></script>
+  <script class="remove">
+    function tryCreateFigures() {
+      if(window.respecMermaid) {
+        window.respecMermaid.createFigures();
+      } else {
+        setTimeout(tryCreateFigures, 200);
+      }
+    }
+    window.tryCreateFigures = tryCreateFigures;
+    // All config options at https://respec.org/docs/
+    var respecConfig = {
+      specStatus: "base",
+      editors: [
+        {name: "Arthur Vercruysse", company: "Ghent University"},
+        {name: "Ben De Meester", company: "Ghent University"},
+      ],
+      github: "some-org/mySpec",
+      shortName: "dahut",
+      xref: "web-platform",
+      group: "my-working-group",
+      postProcess: [ window.tryCreateFigures ]
+    };
+  </script>
+</head>
+
+<body>
+  <section id="abstract">
+    <p>This is required. (abstract)</p>
+  </section>
+
+  <section id="sotd">
+    <p>This is required. (sotd)</p>
+  </section>
+
+  <section data-include-format="markdown" data-include="datamodel.md"></section>
+  <section data-include-format="markdown" data-include="examples.md"></section>
+</body>
+
+</html>
