@@ -1,11 +1,79 @@
 <figure>
   <pre class="diagram mermaid">
-flowchart TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+
+  classDiagram
+    Bemonstering --> RuimtelijkBemonsteringsobject : resultaat
+    Object <-- Bemonstering : bemonsterdObject
+    Object <|-- RuimtelijkBemonsteringsobject
+    RuimtelijkBemonsteringsobject --> Observatie : geassocieerdeObservatie
+    RuimtelijkBemonsteringsobject --> Sensor : gehostPlatform
+
+
+    Sensor --> ObservatieProcedure : implementeert
+
+    Observatie --> Meting : resultaat
+    Observatie --> Observatie : geassocieerdeObservatie
+    Observatie --> Sensor : uitgevoerdDoor
+    Observatie --> ObservatieProcedure : gebruikteProcedure
+
+    Meting <|-- LuchtvochtigheidsMeting
+    Meting <|-- LuchtdrukMeting
+
+    BenoemdeWaarde <-- ObservatieProcedure : paramter
+
+    class ObservatieProcedure {
+        + input: Type
+        + output: Type
+    }
+
+    class BenoemdeWaarde {
+        + naam
+        + waarde
+    }
+
+
+    class Observatie {
+        + identificator
+        + resultaatTijd
+    }
+
+    class Meting:::custom {
+        + waarde
+        + eenheid
+        + gekalibreerd
+    }
+
+    class LuchtvochtigheidsMeting:::custom {
+
+    }
+    class LuchtdrukMeting:::custom {
+        
+    }
+
+    class Sensor {
+        + implementeert: ObservatieProcedure
+    }
+
+    class Object {
+    
+    }
+    class Bemonstering {
+    
+    }
+    class RuimtelijkBemonsteringsobject {
+        + geometrie
+        + gehostPlatform
+    }
+
   </pre>
-  <figcaption>A sequence diagram example</figcaption>
+  <figcaption>
+    MuMo application profile UML diagram. The
+    <span style="color: #f393b7; font-weight: bold;">pink</span> boxes are custom types introduced
+    by MuMo.
+  </figcaption>
+  <style>
+    .custom > rect {
+      fill: #f393b7 !important;
+    }
+  </style>
 </figure>

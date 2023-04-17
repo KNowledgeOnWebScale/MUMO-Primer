@@ -29,9 +29,9 @@ Newly added classes.
 - Meting
 - LuchtdrukMeting
 - LuchtvochtigheidsMeting
- 
-<!-- List classes -->
 
+More kinds of measurements to come
+ 
 <!-- Total visualisation -->
 <section data-include="diagram.html"></section>
 
