@@ -10,7 +10,7 @@
   <script class="remove">
     function tryCreateFigures() {
       if(window.respecMermaid) {
-        window.respecMermaid.createFigures();
+        window.respecMermaid.createFigures().then(console.log).catch(console.error);
       } else {
         setTimeout(tryCreateFigures, 200);
       }
