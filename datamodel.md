@@ -35,19 +35,30 @@ More kinds of measurements to come
 <!-- Total visualisation -->
 <section data-include="diagram.html"></section>
 
-### Mapping data model to the real world
+<section class="informative">
 
-bemonderstingsding is dit.
-meting is dit.
-bemonstering is dit.
+### Explaining the data model with real-world objects
 
-### LDES interpretation
-
-LDES requirements, versioned objects with an identifier.
-This is the case for:
-
-- bemonderstingsding
-- andere dingen
+The `Bemonstering` is a handling that obtains one or more `Bemonsteringsobject`.
+In MuMo this would be placing the device.
+The Atmosphere is the object that is gettings sampled (related to `bemonsterdObject`).
 
 
+The `Bemonsteringsobject` is the device, that placed and activates its sensors.
+Each device is equipped with `Sensor`s that measures one quality of its surroundings. 
+Each reading is an `Observation`, that is not calibrated. 
+To calibrate an `Observation`, we introduce a new `Sensor` the `implementeert` a `ObservatieProcedure` that calibrates the `Observatie` and creates a new `Observatie` of the same type that _is_ calibrated.
+
+</section>
+
+
+### <abbr title="Linked Data Event Streams">LDES</abbr> interpretation
+
+Publishing data with LDES makes replication and synchronization easy by only creating immutable members.
+Multiple members represent the same entity at some point in time.
+These instances are called versioned members.
+
+Each time a Sampling is issued, a new `Bemonsteringsobject` is created, but they represent the same device entity. There are linked together with the `identificator` property.
+
+<!-- TOOD: ik ben eigenlijk niet heel zeker welke LDES dingen nog vermeld moeten worden ... -->
 

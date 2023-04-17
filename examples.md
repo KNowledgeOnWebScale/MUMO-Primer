@@ -1,8 +1,7 @@
 
 ## Examples
 
-Testdata can be found here.
-Simulation of this situation.
+Test data can be found [here](./data.jsonld).
 
 
 ### Query the latest measurement for all sensors

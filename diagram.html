@@ -1,7 +1,11 @@
+
+<h3>MuMo diagram</h3>
+
 <figure>
   <pre class="diagram mermaid">
 
-  classDiagram
+
+classDiagram
     Bemonstering --> RuimtelijkBemonsteringsobject : resultaat
     Object <-- Bemonstering : bemonsterdObject
     Object <|-- RuimtelijkBemonsteringsobject
@@ -19,7 +23,7 @@
     Meting <|-- LuchtvochtigheidsMeting
     Meting <|-- LuchtdrukMeting
 
-    BenoemdeWaarde <-- ObservatieProcedure : paramter
+    BenoemdeWaarde <-- ObservatieProcedure : parameter
 
     class ObservatieProcedure {
         + input: Type
@@ -52,6 +56,7 @@
 
     class Sensor {
         + implementeert: ObservatieProcedure
+        + observeert: Kenmerktype
     }
 
     class Object {
@@ -60,7 +65,9 @@
     class Bemonstering {
     
     }
+
     class RuimtelijkBemonsteringsobject {
+        + identificator: Identificator
         + geometrie
         + gehostPlatform
     }
