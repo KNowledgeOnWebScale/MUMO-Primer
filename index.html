@@ -4,18 +4,37 @@
 <head>
   <meta charset="utf-8" />
   <title>Mumo datamodel Primer</title>
+  <link href="./script/prism.css" rel="stylesheet" />
+<style>
+.token.url {
+  background-color: unset !important;
+}
+    </style>
   <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
   <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.0.1/dist/main.js"
     defer></script>
   <script class="remove">
     function tryCreateFigures() {
-      if(window.respecMermaid) {
-        window.respecMermaid.createFigures().then(console.log).catch(console.error);
+      if (window.respecMermaid) {
+        window.respecMermaid
+          .createFigures()
+          .then(console.log)
+          .catch(console.error);
       } else {
         setTimeout(tryCreateFigures, 200);
       }
     }
     window.tryCreateFigures = tryCreateFigures;
+
+    function redrawPrism() {
+      if (Prism) {
+        Prism.highlightAll();
+        console.log("Prism done");
+      } else {
+        setTimeout(redrawPrism, 200);
+      }
+    }
+    window.redrawPrism = redrawPrism;
     // All config options at https://respec.org/docs/
     var respecConfig = {
       specStatus: "base",
@@ -25,7 +44,7 @@
       ],
       github: "KNowledgeOnWebScale/MUMO-Primer",
       xref: "web-platform",
-      postProcess: [ window.tryCreateFigures ]
+      postProcess: [window.tryCreateFigures, window.redrawPrism],
     };
   </script>
 </head>
@@ -41,6 +60,7 @@
 
   <section data-include-format="markdown" data-include="datamodel.md"></section>
   <section data-include-format="markdown" data-include="examples.md"></section>
+  <script src="./script/prism.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ A small test dataset can be found [here](./data.jsonld).
 
 ### Query the latest measurement for all sensors
 
-```sparql
+```language-sparql
 PREFIX mumo: <http://mumo.be/ns#>
 
 SELECT ?sensor ?max ?value
@@ -32,7 +32,7 @@ WHERE {
 
 ### Query all measurements for one sensor (LuchtvochtigheidsSensor)
 
-```sparql
+```language-sparql
 PREFIX mumo: <http://mumo.be/ns#>
 BASE <http://mumo.be/ns#>
 
@@ -50,7 +50,7 @@ WHERE {
 
 ### For some measurement type (Luchdruk), list all sensors
 
-```sparql
+```language-sparql
 PREFIX mumo: <http://mumo.be/ns#>
 BASE <http://mumo.be/ns#>
 
@@ -72,7 +72,7 @@ WHERE {
 
 ### Something something, query measurement after normalization
 
-```sparql
+```language-sparql
 PREFIX mumo: <http://mumo.be/ns#>
 BASE <http://mumo.be/ns#>
 
