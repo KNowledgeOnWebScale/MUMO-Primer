@@ -1,7 +1,7 @@
 
 ## Examples
 
-A small test dataset can be found [here](./data.jsonld).
+A small example dataset can be found [here](./data.jsonld).
 
 ### Query the latest measurement for all sensors
 
