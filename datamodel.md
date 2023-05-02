@@ -54,15 +54,122 @@ In Dutch `Meting` is used both for Measure and Measurement. Here the `Observatie
 
 ### Explaining the data model with real-world objects
 
-The `Bemonstering` is a handling that obtains one or more `Bemonsteringsobject`.
-In MuMo this would be placing the device.
-The Atmosphere is the object that is gettings sampled (related to `bemonsterdObject`).
+Mumo is often used to measure the atmosphere around museum pieces. 
+The atmosphere corresponds with an Object in this data model. 
+Each room of a museum has a different atmosphere, because, for example, the temperature is different. 
 
+The atmosphere is modeled in JSON-LD like this.
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@id": "Atmosphere-van-Momu",
+  "@type": "Object"
+}
+```
 
-The `Bemonsteringsobject` is the device, that placed and activates its sensors.
-Each device is equipped with `Sensor`s that measures one quality of its surroundings. 
-Each reading is an `Observation`, that is not calibrated. 
-To calibrate an `Observation`, we introduce a new `Sensor` the `implementeert` a `ObservatieProcedure` that calibrates the `Observatie` and creates a new `Observatie` of the same type that _is_ calibrated.
+The purpose of Mumo is to measure this atmosphere, to do this sensors should be mounted on a device and mounted inside the correct room. 
+Each sensor of the device measures a specific feature (_kenmerkType_), like temperature.
+The device that contains all sensors is called a SamplingFeature (_Bemonsteringsobject_) and hosts multiple sensors. 
+Because it is placed and takes up physical space, the type is specified as a RuimtelijkBemonsteringsobject, which has a property geometry.
+
+These concepts are modeled like this in JSON-LD.
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@graph": [
+    {
+      "@id": "TemperatureSensor", 
+      "@type": "Sensor",
+      "Sensor.observeert": {"@id": "Temperature", "@type": "Kenmerktype"}
+    },
+    {
+      "@id": "MUMO-1", 
+      "@type": "RuimtelijkBemonsteringsobject", 
+      "Bemonstering.bemonsterdObject": {"@id": "Atmosfeer-van-Momu"},
+      "RuimtelijkBemonsteringsobject.gehostPlatform": [ {"@id": "TemperatureSensor"} ],
+      "geometrie": {
+        "wkt": "POINT(51.21724189528136 4.399529156132677)"^^<http://schemas.opengis.net/geosparql/1.0/geosparql_vocab_all.rdf#wktLiteral>
+      }
+    }
+  ]
+}
+```
+
+Each time a device is mounted this object is created. Mounting the device is modeled with a Sampling (_bemonstering_).
+
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@id": "AtmosfeerBemonstering",
+  "@type": "Bemonstering", 
+  "bemonsteredObject": {"@id": "Atmosfeer"}, 
+  "Bemonstering.resultaat": {"@id": "LuchtMeter"}, 
+  "Metadata.beschrijving": "Het herophangen van het RuimtelijkBemonsteringsobject" 
+}
+```
+
+A measurement is called an observation (_Observatie_). It contains a time, a link to the used sensor and a measured value.
+This value has a numeric value and the unit of this value. 
+
+In JSON-LD this looks like this.
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@id": "observatie/temperature/1/raw",
+  "@type": "Observatie",
+  "Observatie.resultaattijd": "2002-08-13T16:33:18+02:00",
+  "Observatie.uitgevoerdDoor": {"@id": "TemperatureSensor"}, 
+  "Observatie.resultaat": {
+    "@type": "LuchtdrukMeting",
+    "Meting.value": "22.3",
+    "Meting.eenheid": "celsius",
+    "Meting.gekalibreerd": "false"
+  }
+}
+```
+
+Optionally observations can be calibrated. 
+This is useful when a sensor is still precise but has low accuracy. 
+This calibration applies an offset to the measurement resulting in a measurement that is precise and accurate.
+This process is executed by a calibrator, a type of sensor with a specific calibration procedure.
+This procedure contains the used offset that makes an observation accurate.
+
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@graph": [
+    {
+      "@id": "TemperatureCalibration-1",
+      "@type": "Observatieprocedure", 
+      "Observatieprocedure.input": {"Input.type": {"@id": "Observatie"}}, 
+      "Observatieprocedure.output": {"Output.type": {"@id": "Observatie"}},
+      "Observatieprocedure.parameter": {"@type": "BenoemdeWaarde", "BenoemdeWaarde.naam": "Delta", "BenoemdeWaarde.waarde": "0.5"}},
+    },
+    {
+      "@id": "LuchtdrukKalibrator", 
+      "@type": "Sensor", 
+      "Sensor.observeert": {"@id": "Temperature", "@type": "Kenmerktype"}, 
+      "Sensor.implementeert": {"@id": "TemperatureCalibration-1"}
+    }
+  ]
+}
+```
+
+This calibration sensor creates new associated observations, a property associatedObservation (_geassocieerdeObservatie_) maintains provenance.
+
+```json
+{
+  "@context": "https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/context.jsonld",
+  "@id": "observatie/temperature/1",
+  "@type": "Observatie",
+  "Observatie.resultaattijd": "2002-08-14T16:33:23+02:00",
+  "Observatie.resultaat": { "@type": "Meting", "Meting.value": "21.8", "Meting.eenheid": "celsius", "Meting.gekalibreerd": "true" },
+  "Observatie.uitgevoerdDoor": { "@id": "TemperatureCalibration-1"}, 
+  "Observatie.geassocieerdeObservatie": {"@id": "observatie/temperature/1/raw"}
+}
+```
+
+A full example of this data can be found [here](./data.jsonld).
 
 </section>
 
