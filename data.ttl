@@ -1,164 +1,123 @@
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix ns0: <http://purl.org/cd/terms/> .
-@prefix ns1: <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#Observatieprocedure.> .
-@prefix ns2: <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix dc11: <http://purl.org/dc/elements/1.1/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ns3: <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.> .
-@prefix ns4: <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.> .
-@prefix ns5: <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.> .
-@prefix ns6: <http://mumo.be/ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ns7: <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.> .
+<http://mumo.be/data/Atmosfeer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature> .
+<http://mumo.be/data/AtmosfeerBemonstering> <http://purl.org/dc/elements/1.1/description> "Het ophangen van de RuimtelijkBemonsteringsobject" .
+<http://mumo.be/data/AtmosfeerBemonstering> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/sosa/Sampling> .
+<http://mumo.be/data/AtmosfeerBemonstering> <http://www.w3.org/ns/sosa/hasResult> <http://mumo.be/data/LuchtMeter> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/1/raw> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/1> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/2/raw> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/2> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.hostedProcedure> <http://mumo.be/data/LuchtdrukKalibrator> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.hostedProcedure> <http://mumo.be/data/LuchtdrukSensor> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.hostedProcedure> <http://mumo.be/data/LuchtvochtigheidsKalibrator> .
+<http://mumo.be/data/LuchtMeter> <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.hostedProcedure> <http://mumo.be/data/LuchtvochtigheidsSensor> .
+<http://mumo.be/data/LuchtMeter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature> .
+<http://mumo.be/data/LuchtMeter> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <http://mumo.be/data/Atmosfeer> .
+<http://mumo.be/data/LuchtVochtigheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
+<http://mumo.be/data/Luchtdruk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
+<http://mumo.be/data/LuchtdrukKalibratie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/TR/vocab-ssn/#SOSAProcedure> .
+<http://mumo.be/data/LuchtdrukKalibratie> <http://www.w3.org/ns/ssn/hasInput> _:b0 .
+<http://mumo.be/data/LuchtdrukKalibratie> <http://www.w3.org/ns/ssn/hasOutput> _:b1 .
+<http://mumo.be/data/LuchtdrukKalibratie> <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#Observatieprocedure.parameter> _:b2 .
+<http://mumo.be/data/LuchtdrukKalibrator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/ns/sosa/Sensor> .
+<http://mumo.be/data/LuchtdrukKalibrator> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/druk/1> .
+<http://mumo.be/data/LuchtdrukKalibrator> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/druk/2> .
+<http://mumo.be/data/LuchtdrukKalibrator> <http://www.w3.org/ns/sosa/observes> <http://mumo.be/data/Luchtdruk> .
+<http://mumo.be/data/LuchtdrukKalibrator> <http://www.w3.org/ns/ssn/implements> <http://mumo.be/data/LuchtdrukKalibratie> .
+<http://mumo.be/data/LuchtdrukMeting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/class> .
+<http://mumo.be/data/LuchtdrukSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/ns/sosa/Sensor> .
+<http://mumo.be/data/LuchtdrukSensor> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/druk/1/raw> .
+<http://mumo.be/data/LuchtdrukSensor> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/druk/2/raw> .
+<http://mumo.be/data/LuchtdrukSensor> <http://www.w3.org/ns/sosa/observes> <http://mumo.be/data/Luchtdruk> .
+<http://mumo.be/data/LuchtsvochtigheidsKalibratie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/TR/vocab-ssn/#SOSAProcedure> .
+<http://mumo.be/data/LuchtsvochtigheidsKalibratie> <http://www.w3.org/ns/ssn/hasInput> _:b3 .
+<http://mumo.be/data/LuchtsvochtigheidsKalibratie> <http://www.w3.org/ns/ssn/hasOutput> _:b4 .
+<http://mumo.be/data/LuchtsvochtigheidsKalibratie> <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#Observatieprocedure.parameter> _:b5 .
+<http://mumo.be/data/LuchtvochtigheidsKalibrator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/ns/sosa/Sensor> .
+<http://mumo.be/data/LuchtvochtigheidsKalibrator> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/vocht/1> .
+<http://mumo.be/data/LuchtvochtigheidsKalibrator> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/vocht/2> .
+<http://mumo.be/data/LuchtvochtigheidsKalibrator> <http://www.w3.org/ns/sosa/observes> <http://mumo.be/data/LuchtVochtigheid> .
+<http://mumo.be/data/LuchtvochtigheidsKalibrator> <http://www.w3.org/ns/ssn/implements> <http://mumo.be/data/LuchtsvochtigheidsKalibratie> .
+<http://mumo.be/data/LuchtvochtigheidsMeting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/class> .
+<http://mumo.be/data/LuchtvochtigheidsSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.w3.org/ns/sosa/Sensor> .
+<http://mumo.be/data/LuchtvochtigheidsSensor> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/vocht/1/raw> .
+<http://mumo.be/data/LuchtvochtigheidsSensor> <http://www.w3.org/ns/sosa/madeObservation> <http://mumo.be/data/observatie/vocht/2/raw> .
+<http://mumo.be/data/LuchtvochtigheidsSensor> <http://www.w3.org/ns/sosa/observes> <http://mumo.be/data/LuchtVochtigheid> .
+<http://mumo.be/data/observatie/druk/1/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b6 .
+<http://mumo.be/data/observatie/druk/1/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-13T16:33:18+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/druk/1/raw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/druk/1/raw> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukSensor> .
+<http://mumo.be/data/observatie/druk/1> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b10 .
+<http://mumo.be/data/observatie/druk/1> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-13T16:33:22+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/druk/1> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/druk/1/raw> .
+<http://mumo.be/data/observatie/druk/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/druk/1> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukKalibrator> .
+<http://mumo.be/data/observatie/druk/2/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b7 .
+<http://mumo.be/data/observatie/druk/2/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-14T16:33:19+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/druk/2/raw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/druk/2/raw> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukSensor> .
+<http://mumo.be/data/observatie/druk/2> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b11 .
+<http://mumo.be/data/observatie/druk/2> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-14T16:33:23+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/druk/2> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/druk/2/raw> .
+<http://mumo.be/data/observatie/druk/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/druk/2> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukKalibrator> .
+<http://mumo.be/data/observatie/vocht/1/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b8 .
+<http://mumo.be/data/observatie/vocht/1/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-13T16:33:20+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/vocht/1/raw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/vocht/1/raw> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtvochtigheidsSensor> .
+<http://mumo.be/data/observatie/vocht/1> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b12 .
+<http://mumo.be/data/observatie/vocht/1> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-13T16:33:24+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/vocht/1> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/1/raw> .
+<http://mumo.be/data/observatie/vocht/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/vocht/1> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukKalibrator> .
+<http://mumo.be/data/observatie/vocht/2/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b9 .
+<http://mumo.be/data/observatie/vocht/2/raw> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-14T16:33:21+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/vocht/2/raw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/vocht/2/raw> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtvochtigheidsSensor> .
+<http://mumo.be/data/observatie/vocht/2> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> _:b13 .
+<http://mumo.be/data/observatie/vocht/2> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> "2002-08-14T16:33:25+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://mumo.be/data/observatie/vocht/2> <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> <http://mumo.be/data/observatie/vocht/2/raw> .
+<http://mumo.be/data/observatie/vocht/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+<http://mumo.be/data/observatie/vocht/2> <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> <http://mumo.be/data/LuchtdrukKalibrator> .
+_:b0 <http://purl.org/cd/terms/type> <http://mumo.be/data/LuchtdrukMeting> .
+_:b1 <http://purl.org/cd/terms/type> <http://mumo.be/data/LuchtdrukMeting> .
+_:b10 <http://mumo.be/ns/eenheid> "bar" .
+_:b10 <http://mumo.be/ns/gekalibreerd> "true" .
+_:b10 <http://mumo.be/ns/value> "1.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/Meting> .
+_:b11 <http://mumo.be/ns/eenheid> "bar" .
+_:b11 <http://mumo.be/ns/gekalibreerd> "true" .
+_:b11 <http://mumo.be/ns/value> "1.1"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/Meting> .
+_:b12 <http://mumo.be/ns/eenheid> "percent" .
+_:b12 <http://mumo.be/ns/gekalibreerd> "true" .
+_:b12 <http://mumo.be/ns/value> "38"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
+_:b13 <http://mumo.be/ns/eenheid> "percent" .
+_:b13 <http://mumo.be/ns/gekalibreerd> "true" .
+_:b13 <http://mumo.be/ns/value> "40"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
+_:b2 <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.name> <http://mumo.be/data/Delta> .
+_:b2 <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.value> <http://mumo.be/data/0.2> .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> .
+_:b3 <http://purl.org/cd/terms/type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
+_:b4 <http://purl.org/cd/terms/type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
+_:b5 <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.name> <http://mumo.be/data/Delta> .
+_:b5 <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.value> <http://mumo.be/data/0.5> .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> .
+_:b6 <http://mumo.be/ns/eenheid> "bar" .
+_:b6 <http://mumo.be/ns/gekalibreerd> "false" .
+_:b6 <http://mumo.be/ns/value> "1.2"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtdrukMeting> .
+_:b7 <http://mumo.be/ns/eenheid> "bar" .
+_:b7 <http://mumo.be/ns/gekalibreerd> "false" .
+_:b7 <http://mumo.be/ns/value> "1"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtdrukMeting> .
+_:b8 <http://mumo.be/ns/eenheid> "percent" .
+_:b8 <http://mumo.be/ns/gekalibreerd> "false" .
+_:b8 <http://mumo.be/ns/value> "40"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
+_:b9 <http://mumo.be/ns/eenheid> "percent" .
+_:b9 <http://mumo.be/ns/gekalibreerd> "false" .
+_:b9 <http://mumo.be/ns/value> "42"^^<http://www.w3.org/2001/XMLSchema#float> .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mumo.be/data/LuchtvochtigheidsMeting> .
 
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukMeting> a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/class> .
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/class> .
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibratie>
-  a <https://www.w3.org/TR/vocab-ssn/#SOSAProcedure> ;
-  ssn:hasInput [ ns0:type <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukMeting> ] ;
-  ssn:hasOutput [ ns0:type <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukMeting> ] ;
-  ns1:parameter [
-    a <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> ;
-    ns2:name <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Delta> ;
-    ns2:value <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/0.2>
-  ] .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtsvochtigheidsKalibratie>
-  a <https://www.w3.org/TR/vocab-ssn/#SOSAProcedure> ;
-  ssn:hasInput [ ns0:type <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ] ;
-  ssn:hasOutput [ ns0:type <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ] ;
-  ns1:parameter [
-    a <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> ;
-    ns2:name <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Delta> ;
-    ns2:value <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/0.5>
-  ] .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Atmosfeer> a <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature> .
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/AtmosfeerBemonstering>
-  a sosa:Sampling ;
-  dc11:description "Het ophangen van de RuimtelijkBemonsteringsobject"^^rdf:langString ;
-  sosa:hasResult <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtMeter> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtMeter>
-  a <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature> ;
-  ns3:relatedObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2/raw>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1/raw> ;
-  ns4:hostedProcedure <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukSensor>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsSensor>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsKalibrator> ;
-  sosa:hasFeatureOfInterest <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Atmosfeer> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ;
-    ns6:eenheid "percent"^^xsd:string ;
-    ns6:gekalibreerd "true"^^xsd:string ;
-    ns6:value "40"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-14T16:33:25+02:00"^^xsd:dateTime ;
-  ns3:relatedObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2/raw> ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ;
-    ns6:eenheid "percent"^^xsd:string ;
-    ns6:gekalibreerd "true"^^xsd:string ;
-    ns6:value "38"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-13T16:33:24+02:00"^^xsd:dateTime ;
-  ns3:relatedObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1/raw> ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2/raw>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ;
-    ns6:eenheid "percent"^^xsd:string ;
-    ns6:gekalibreerd "false"^^xsd:string ;
-    ns6:value "42"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-14T16:33:21+02:00"^^xsd:dateTime ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsSensor> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1/raw>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsMeting> ;
-    ns6:eenheid "percent"^^xsd:string ;
-    ns6:gekalibreerd "false"^^xsd:string ;
-    ns6:value "40"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-13T16:33:20+02:00"^^xsd:dateTime ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsSensor> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukSensor>
-  a <https://www.w3.org/ns/sosa/Sensor> ;
-  sosa:madeObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/1/raw>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/2/raw> ;
-  sosa:observes <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Luchtdruk> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsSensor>
-  a <https://www.w3.org/ns/sosa/Sensor> ;
-  sosa:madeObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1/raw>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2/raw> ;
-  sosa:observes <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtVochtigheid> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator>
-  a <https://www.w3.org/ns/sosa/Sensor> ;
-  sosa:madeObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/1>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/2> ;
-  sosa:observes <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Luchtdruk> ;
-  ssn:implements <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibratie> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtvochtigheidsKalibrator>
-  a <https://www.w3.org/ns/sosa/Sensor> ;
-  sosa:madeObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/1>, <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/vocht/2> ;
-  sosa:observes <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtVochtigheid> ;
-  ssn:implements <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtsvochtigheidsKalibratie> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/1/raw>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukMeting> ;
-    ns6:eenheid "bar"^^xsd:string ;
-    ns6:gekalibreerd "false"^^xsd:string ;
-    ns6:value "1.2"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-13T16:33:18+02:00"^^xsd:dateTime ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukSensor> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/2/raw>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukMeting> ;
-    ns6:eenheid "bar"^^xsd:string ;
-    ns6:gekalibreerd "false"^^xsd:string ;
-    ns6:value "1"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-14T16:33:19+02:00"^^xsd:dateTime ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukSensor> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Luchtdruk> a <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/1>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Meting> ;
-    ns6:eenheid "bar"^^xsd:string ;
-    ns6:gekalibreerd "true"^^xsd:string ;
-    ns6:value "1.0"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-13T16:33:22+02:00"^^xsd:dateTime ;
-  ns3:relatedObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/1/raw> ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/2>
-  a <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> ;
-  ns5:result [
-    a <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/Meting> ;
-    ns6:eenheid "bar"^^xsd:string ;
-    ns6:gekalibreerd "true"^^xsd:string ;
-    ns6:value "1.1"^^xsd:float
-  ] ;
-  ns5:resultTime "2002-08-14T16:33:23+02:00"^^xsd:dateTime ;
-  ns3:relatedObservation <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/observatie/druk/2/raw> ;
-  ns7:uitgevoerdDoor <https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtdrukKalibrator> .
-
-<https://raw.githubusercontent.com/KNowledgeOnWebScale/MUMO-Primer/main/LuchtVochtigheid> a <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
