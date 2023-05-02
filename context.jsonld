@@ -1,0 +1,14 @@
+{
+  "@context": [
+    "https://data.vlaanderen.be/doc/applicatieprofiel/sensoren-en-bemonstering/kandidaatstandaard/2022-04-28/context/ap-sensoren-en-bemonstering.jsonld",
+    {
+      "@base": "http://mumo.be/data/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "mumo": "http://mumo.be/ns/",
+      "Meting.value":  { "@id": "mumo:value", "@type": "xsd:float"},
+      "Meting.eenheid": "mumo:eenheid",
+      "Meting.gekalibreerd": "mumo:gekalibreerd",
+      "Observatie.resultaattijd": { "@id":"http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime" , "@type": "xsd:dateTime"}
+    }
+  ]
+}
